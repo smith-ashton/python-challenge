@@ -17,7 +17,7 @@ with open(csvpath) as csvfile:
     vote_count = 0
     cand_count = 0
     cand_count2 = 0
-
+#sorting through csv to get unique names and total votes
     for row in csvreader:
         candidate_row.append(row[2])
         count = count + 1
@@ -27,16 +27,17 @@ with open(csvpath) as csvfile:
             cand_list.append(x)
             cand_count = cand_count + 1
 
+    print ("\nElection Results")
+    print("--------------------")
+    print("Total Votes: " + str(count))
+    print("--------------------")
+
     while cand_count2 < cand_count:
         for x in candidate_row:
             if x == cand_list[cand_count2]:
                 vote_count = vote_count + 1
-        print (cand_list[cand_count2], vote_count)
+        percent = "{:.2%}".format(vote_count / count)
+        print (cand_list[cand_count2] + ": " + str(percent) + "% (" + str(vote_count) + ")")
+        vote_count = 0
         cand_count2 = cand_count2 + 1
-
-
-#The total number of votes cast
-#A complete list of candidates who received votes
-#The percentage of votes each candidate won
-#The total number of votes each candidate won
-#The winner of the election based on popular vote.
+    
