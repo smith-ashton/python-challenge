@@ -32,12 +32,19 @@ with open(csvpath) as csvfile:
     print("Total Votes: " + str(count))
     print("--------------------")
 
+    max_vote = 0
     while cand_count2 < cand_count:
         for x in candidate_row:
             if x == cand_list[cand_count2]:
                 vote_count = vote_count + 1
+        if vote_count > max_vote:
+            winner = cand_list[cand_count2]
+            max_vote = vote_count
         percent = "{:.2%}".format(vote_count / count)
         print (cand_list[cand_count2] + ": " + str(percent) + "% (" + str(vote_count) + ")")
         vote_count = 0
         cand_count2 = cand_count2 + 1
     
+    print("--------------------")
+    print("Winner: " + str(winner))
+    print("--------------------")    
