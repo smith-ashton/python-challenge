@@ -1,5 +1,5 @@
 # python-challenge
-## Task
+## Task:
 
 ### PyBank
 Create a Python script that analyzes the records of a .csv file to calculate each of the following:
