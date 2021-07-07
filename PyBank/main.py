@@ -1,5 +1,4 @@
 #imports
-
 import os
 import csv
 
@@ -32,22 +31,16 @@ with open(csvpath) as csvfile:
             least = float(row[1])
             least_month = row[0]
     average = total / count
-#     print("\nFinancial Analysis")
-#     print("----------------------")
-#     print("Total Months: " + str(count))
-#     print("Total: $" + str(total))
-#     print("Average Change: $" + str(round(average,2)))
-#     print("Greatest Increase in Profits: " + greatest_month + "($" + str(greatest) + ")")
-#     print("Greatest Decrease in Profits: " + least_month + "($" + str(least) + ")")
-
+#set up print
     line1 = ("\nFinancial Analysis")
     line2 = ("----------------------")
     line3 = ("Total Months: " + str(count))
     line4 = ("Total: $" + str(total))
     line5 = ("Average Change: $" + str(round(average,2)))
     line6 = ("Greatest Increase in Profits: " + greatest_month + "($" + str(greatest) + ")")
-    line7 = ("Greatest Decrease in Profits: " + least_month + "($" + str(least) + ")")
-
+    line7 = ("Greatest Decrease in Profits: " + least_month + "($" + str(least) + ")\n")
+    
+#Print to terminal
     print(line1)
     print(line2)
     print(line3)
@@ -56,6 +49,7 @@ with open(csvpath) as csvfile:
     print(line6)
     print(line7)
 
+#Print to text file
 output_file = os.path.join('analysis','output.txt')
 
 with open(output_file, 'a') as out:
