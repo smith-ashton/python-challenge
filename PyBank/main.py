@@ -13,25 +13,28 @@ with open(csvpath) as csvfile:
 
     csv_header = next(csvreader)
 
+    #set up variables
     count = 0
     total = 0
     greatest = 0
     least = 0
+    
+    #Loop through csv
     for row in csvreader:
-#Calculate total number on months included in the dataset
+    #Calculate total number on months included in the dataset
         count = count + 1
-#Calculate net total amount of "Profit/Losses" over the entire period
+    #Calculate net total amount of "Profit/Losses" over the entire period
         total = total + float(row[1])
-#Calculate greatest increase in profits (date and amount) over the entire period
+    #Calculate greatest increase in profits (date and amount) over the entire period
         if float(row[1]) > greatest:
             greatest = float(row[1])
             greatest_month = row[0]
-#Calculate greatest decrease in losses (date and amount) over the entire period
+    #Calculate greatest decrease in losses (date and amount) over the entire period
         if float(row[1]) < least:
             least = float(row[1])
             least_month = row[0]
     average = total / count
-#set up print
+    #set up print
     line1 = ("\nFinancial Analysis")
     line2 = ("----------------------")
     line3 = ("Total Months: " + str(count))
